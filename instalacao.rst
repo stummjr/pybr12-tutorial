@@ -7,11 +7,11 @@ Guia de Instalação
 Instalando o Scrapy
 ===================
 
-Scrapy roda em Python 2.7 e 3.3 ou maior (exceto no Windows onde Python 3
+O Scrapy roda em Python 2.7 e 3.3 ou maior (exceto no Windows onde Python 3
 ainda não é suportado).
 
 Se você já é familiar com a instalação de pacotes Python, você pode instalar o
-Scrapy e suas dependências::
+Scrapy e suas dependências executando::
 
     pip install Scrapy
 
@@ -64,35 +64,34 @@ TL;DR: Nós recomendamos instalar o Scrapy dentro de um ambiente virtual em
 todas as plataformas.
 
 Pacotes Python podem ser instalados tanto globalmente (sistema) ou no espaço do
-usuário. Não recomendamos que você instale o Scrapy globalmente no sistema.
+usuário. Nós recomendamos que você **não** instale o Scrapy globalmente no sistema.
 
 Ao invés disso, recomendamos que instale o Scrapy dentro do que chamamos de
 "virtualenv" (`virtualenv`_).
-Virtualenvs permitem que os pacotes que você instale não conflitem com os pacotes
+Virtualenvs permitem que os pacotes que você instala não conflitem com os pacotes
 já instalados no seu sistema (o que poderia quebrar algumas das suas ferramentas e
 scripts do sistema), e também permite a instalação normal usando ``pip`` (sem 
-permissões de super-usuário.
+permissões de super-usuário).
 
-Para começar com virtualenvs, veja `instruções de instalação do Virtualenv`_.
+Para começar com virtualenvs, veja as `instruções de instalação do Virtualenv`_.
 Para instalar o virtualenv globalmente (o que neste caso é útil), basta executar::
 
     $ [sudo] pip install virtualenv
 
 Verifique este `guia de usuário`_ para aprender como criar um ambiente virtual.
 
-.. note::
-    Se você usa Linux ou OS X, o `virtualenvwrapper`_ é uma mão na roda para gerenciar vittualenvs.
+**Nota**: Se você usa Linux ou OS X, o `virtualenvwrapper`_ é uma mão na roda para gerenciar vittualenvs.
 
 Uma vez que tenha criado um virtualenv, você pode instalar o Scrapy dentro dele usando o ``pip``,
 como faria com qualquer outro pacote Python.
 
 (Veja :ref:`os guias específicos por plataforma <intro-install-platform-notes>`
-abaixo para as dependências não-Pythonque você talvez precise instalar).
+abaixo para as dependências "não-Python que você talvez precise instalar).
 
 Virtualenvs Python podem ser criados usando Python 2 ou 3 por padrão.
 
-* Se você quiser instalar o Scrapy com Python 3, instale ele dentro de um virtualeng Python 3.
-* E se você quiser instalar o Scrapy com Python 2, instale ele dentro de um virtualeng Python 2.
+* Se você quiser instalar o Scrapy com Python 3, instale ele dentro de um virtualenv Python 3.
+* E se você quiser instalar o Scrapy com Python 2, instale ele dentro de um virtualenv Python 2.
 
 .. _virtualenv: https://virtualenv.pypa.io
 .. _instruções de instalação do Virtualenv: https://virtualenv.pypa.io/en/stable/installation/
@@ -110,10 +109,9 @@ Windows
 
 * Instale Python 2.7 (https://www.python.org/downloads/)
 
-  Você precisa ajustar a variável de ambiente ``PATH`` para incluir caminhos para o 
-  executável do interpretador Python e scripts adicionais. Os seguintes caminhos
-  devem ser incluídosThe following paths need to be ao ``PATH``::
-  added to ``PATH``::
+  Você precisa ajustar a variável de ambiente ``PATH``, incluindo caminhos para o 
+  executável do interpretador Python e dos scripts adicionais. Os seguintes caminhos
+  devem ser incluídos no ``PATH``::
 
       C:\Python27\;C:\Python27\Scripts\;
 
@@ -121,8 +119,9 @@ Windows
 
       c:\python27\python.exe c:\python27\tools\scripts\win_add2path.py
 
-  Feche o prompt de comando e o reabra de forma que as alterações sejam aplicadas,
-  execute o seguinte comando e verifique se ele mostra a versão esperada do Python::
+  Após executar tal comando, feche o prompt de comando e abra novamente de forma
+  que as alterações sejam aplicadas. Feito isso, execute o seguinte comando e verifique se
+  ele mostra a versão esperada do Python::
 
       python --version
 
@@ -140,16 +139,16 @@ Windows
 
       pip install Scrapy
 
-.. note::
-     Python 3 não é suportado no Windoes. Isto acontece porque o Twisted, que é uma dependência do
+**Nota: Python 3 não é suportado no Windows. Isto acontece porque o Twisted, que é uma dependência do
      Scrapy, não suporta Python 3 no Windows.
+
 
 Ubuntu 12.04 ou mais recente
 ----------------------------
 O Scrapy é atualmente testado com versões recentes o suficiente do lxml, twisted e pyOpenSSL,
 e é compatível com distribuições Ubuntu recentes.
 
-**Não** use o pacote ``python-scrapy`` disponível no Ubuntu, pois ela está severamente
+**Não use o pacote ``python-scrapy`` disponível no Ubuntu**, pois ela está severamente
 desatualizada.
 
 Para instalar o Scrapy no Ubuntu (ou sistemas baseados nele), você primeiramente precisa instalar as suas dependências::
@@ -165,8 +164,7 @@ cabeçalhos de desenvolvimento do Python 3::
 
     sudo apt-get install python3 python3-dev
 
-Dentro de um :ref:`virtualenv <intro-using-virtualenv>`, você pode instalar o Scrapy
-usando o ``pip`` depois disso::
+Feito isso, você pode instalar o Scrapy usando o ``pip``::
 
     pip install scrapy
 
@@ -175,13 +173,13 @@ Mac OS X
 --------
 
 A construção das dependências do Scrapy necessitam da presença de um compilador C e
-cabeçalhos de desenvolvimento. Ambos são tipicamente fornecidos pelas ferramentas de 
+dos cabeçalhos de desenvolvimento. Ambos são tipicamente fornecidos pelas ferramentas de 
 desenvolvimento do Xcode. Para instalar as ferramentas da linha de comando do Xcode,
 abra um terminal e execute::
 
     xcode-select --install
 
-Exite um `problema conhecido <https://github.com/pypa/pip/issues/2468>`_ que
+Existe um `problema conhecido <https://github.com/pypa/pip/issues/2468>`_ que
 não permite que o ``pip`` atualize pacotes do sistema. Isso deve ser ajustado
 para instalar o Scrapy e suas dependências. Aqui seguem algumas possíveis soluções:
 
@@ -204,16 +202,16 @@ para instalar o Scrapy e suas dependências. Aqui seguem algumas possíveis solu
 
       brew install python
 
-  * As versões mais recentes de Python versions já vem com o ``pip`` incluso. Se esse não
+  * As versões mais recentes de Python já vem com o ``pip`` incluso. Se esse não
     for o seu caso, atualize python::
 
       brew update; brew upgrade python
 
 * *(Opcional)* Instale o Scrapy dentro de um ambiente virtual python isolado.
 
-  `virtualenv`_ is a tool you can use to create virtual environments in python.
-  We recommended reading a tutorial like
-  http://docs.python-guide.org/en/latest/dev/virtualenvs/ to get started.
+  `virtualenv`_ é uma ferramenta para a criação de ambiente virtuais isolados Python.
+  Recomendamos que leia
+  http://docs.python-guide.org/en/latest/dev/virtualenvs/ para começar.
 
 Depois de qualquer um dos workarounds acima terem sido aplicadas, você deve estar apto a 
 instalar o Scrapy::
@@ -226,13 +224,13 @@ Anaconda
 
 Anaconda é uma alternativa à dupla virtualenv + pip.
 
-.. note::
-
-  Este é o modo recomendado para instalação do Scrapy caso você esteja no Windows ou caso tenha problemas instalando via pip.
+**Nota:** este é o modo recomendado para instalação do Scrapy caso você esteja no Windows ou caso tenha problemas instalando via pip.
 
 Para instalar o Scrapy usando ``conda``, execute::
 
   conda install -c scrapinghub scrapy
+
+Este documento é uma tradução do `guia de instalação oficial do Scrapy <https://doc.scrapy.org/en/latest/intro/install.html>`_.
 
 .. _Python: https://www.python.org/
 .. _pip: https://pip.pypa.io/en/latest/installing/
