@@ -174,53 +174,49 @@ usando o ``pip`` depois disso::
 Mac OS X
 --------
 
-Building Scrapy's dependencies requires the presence of a C compiler and
-development headers. On OS X this is typically provided by Apple’s Xcode
-development tools. To install the Xcode command line tools open a terminal
-window and run::
+A construção das dependências do Scrapy necessitam da presença de um compilador C e
+cabeçalhos de desenvolvimento. Ambos são tipicamente fornecidos pelas ferramentas de 
+desenvolvimento do Xcode. Para instalar as ferramentas da linha de comando do Xcode,
+abra um terminal e execute::
 
     xcode-select --install
 
-There's a `known issue <https://github.com/pypa/pip/issues/2468>`_ that
-prevents ``pip`` from updating system packages. This has to be addressed to
-successfully install Scrapy and its dependencies. Here are some proposed
-solutions:
+Exite um `problema conhecido <https://github.com/pypa/pip/issues/2468>`_ que
+não permite que o ``pip`` atualize pacotes do sistema. Isso deve ser ajustado
+para instalar o Scrapy e suas dependências. Aqui seguem algumas possíveis soluções:
 
-* *(Recommended)* **Don't** use system python, install a new, updated version
-  that doesn't conflict with the rest of your system. Here's how to do it using
-  the `homebrew`_ package manager:
+* *(Recomendada)* **Não** use o Python que vem instalado no OSX. Ao invés disso, instale
+  uma versão atualizada que não conflite com o resto do seu sistema. Você pode fazer isso
+  usando o gerenciador de pacotes `homebrew`_:
 
-  * Install `homebrew`_ following the instructions in http://brew.sh/
+  * Siga as instruções descritas em http://brew.sh/ para instalar o `homebrew`_ 
 
-  * Update your ``PATH`` variable to state that homebrew packages should be
-    used before system packages (Change ``.bashrc`` to ``.zshrc`` accordantly
-    if you're using `zsh`_ as default shell)::
+  * Atualize sua variável de ambiente ``PATH`` para dar prioridade aos pacotes instalados via
+    homebrew (Substitua ``.bashrc`` por ``.zshrc`` se estiver usando o `zsh`_)::
 
       echo "export PATH=/usr/local/bin:/usr/local/sbin:$PATH" >> ~/.bashrc
 
-  * Reload ``.bashrc`` to ensure the changes have taken place::
+  * Recarregue o ``.bashrc`` pra garantir que as alterações tenham efeito::
 
       source ~/.bashrc
 
-  * Install python::
+  * Instale python::
 
       brew install python
 
-  * Latest versions of python have ``pip`` bundled with them so you won't need
-    to install it separately. If this is not the case, upgrade python::
+  * As versões mais recentes de Python versions já vem com o ``pip`` incluso. Se esse não
+    for o seu caso, atualize python::
 
       brew update; brew upgrade python
 
-* *(Optional)* Install Scrapy inside an isolated python environment.
-
-  This method is a workaround for the above OS X issue, but it's an overall
-  good practice for managing dependencies and can complement the first method.
+* *(Opcional)* Instale o Scrapy dentro de um ambiente virtual python isolado.
 
   `virtualenv`_ is a tool you can use to create virtual environments in python.
   We recommended reading a tutorial like
   http://docs.python-guide.org/en/latest/dev/virtualenvs/ to get started.
 
-After any of these workarounds you should be able to install Scrapy::
+Depois de qualquer um dos workarounds acima terem sido aplicadas, você deve estar apto a 
+instalar o Scrapy::
 
   pip install Scrapy
 
@@ -228,18 +224,13 @@ After any of these workarounds you should be able to install Scrapy::
 Anaconda
 --------
 
-
-Using Anaconda is an alternative to using a virtualenv and installing with ``pip``.
+Anaconda é uma alternativa à dupla virtualenv + pip.
 
 .. note::
 
-  For Windows users, or if you have issues installing through ``pip``, this is
-  the recommended way to install Scrapy.
+  Este é o modo recomendado para instalação do Scrapy caso você esteja no Windows ou caso tenha problemas instalando via pip.
 
-If you already have `Anaconda`_ or `Miniconda`_ installed,
-`Scrapinghub`_ maintains official conda packages for Linux, Windows and OS X.
-
-To install Scrapy using ``conda``, run::
+Para instalar o Scrapy usando ``conda``, execute::
 
   conda install -c scrapinghub scrapy
 
